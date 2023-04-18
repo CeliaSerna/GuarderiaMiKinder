@@ -3,7 +3,7 @@ package com.cursoceat.modell;
 public class Nino{
 	
 	static int id;//todos los niños
-	private int idNino;//id de un objeto niño que se crea
+	protected int idNino;//id de un objeto niño que se crea
 	private String nombreNino;
 	private String apellidosNino;
 	private String direccionNino;
@@ -39,6 +39,16 @@ public Nino(String nombreNino, String apellidosNino, String direccionNino, Strin
 
 public Nino() {
 
+}
+
+
+public int getIdNino() {
+	return idNino;
+}
+
+
+public void setIdNino(int idNino) {
+	this.idNino = idNino;
 }
 
 
