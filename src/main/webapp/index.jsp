@@ -15,7 +15,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="shortcut icon" href="img/child.png" type="image/png">
+
 <style>
+	input:hover, textarea:hover {
+  	background-color:#f4fcf8 !important;
+	}
 	*{
 	font-family: 'Delicious Handrawn', cursive;
 	font-size:20px;
@@ -33,13 +39,12 @@
 	
 	#limpiar:hover{
 	background-color: white !important;
-	color: #89af9d !important;
-	
+	color: #85a093 !important;
 	
 	}
 	#enviar:hover{
 	background-color: white !important;
-	color: #89af9d !important;
+	color: #85a093 !important;
  
 	}
 </style>
@@ -50,27 +55,37 @@
 <jsp:include page="header.jsp"></jsp:include>
 
 <div class="container">
-<form action="confirmacion.jsp" method="get">
 
+<!-- imprime error si los campos no estan rellenos -->
+<p class="text-danger">
+<c:out value="${error }"></c:out>
+</p>
+<!--      *********************************      -->
+
+<form action="Controller" method="get">
+<p>(*) Obligatorios</p>
 <h2>Datos del niño/a:</h2>
 <div class="row">
   <div class="col-4">
-    <input type="text" class="form-control" name="nombre_nino" 
-    placeholder="Nombre" aria-label="Nombre del niño">
+    <input type="text" class="form-control text-capitalize" name="nombre_nino" 
+    placeholder="Nombre*" aria-label="Nombre del niño" required
+    value="${param.nombre_nino}">
     </div>
     
   <div class="col-4">
-    <input type="text" class="form-control" name="apellidos_nino"
-      placeholder="Apellidos" aria-label="Apellidos del niño">
+    <input type="text" class="form-control text-capitalize" name="apellidos_nino"
+      placeholder="Apellidos*" aria-label="Apellidos del niño" required
+      value="${param.apellidos_nino}">
   </div>
   
   <div class="col-2 text-end pt-lg-2">
-  <label for="fecha_naci">Fecha de nacimiento:</label>
+  <label for="fecha_naci">Fecha de nacimiento*:</label>
   </div>
   
   <div class="col-2">
     <input type="date" class="form-control" name="fecha_naci_nino"
-     aria-label="Fecha de nacimiento del niño">
+     aria-label="Fecha de nacimiento del niño" required
+     value="${param.fecha_naci_nino}">
     </div>   
 </div>
 
@@ -78,18 +93,22 @@
 
 <div class="row pt-4">
   <div class="col-6">
-    <input type="text" class="form-control" name="direccion_nino" 
-    placeholder="Dirección" aria-label="Dirección del niño">
+    <input type="text" class="form-control text-capitalize" name="direccion_nino" 
+    placeholder="Dirección*" aria-label="Dirección del niño" required
+    value="${param.direccion_nino}">
+    
     </div>
     
   <div class="col-4">
-    <input type="text" class="form-control" name="poblacion_nino"
-      placeholder="Población" aria-label="Población del niño">
+    <input type="text" class="form-control text-capitalize" name="poblacion_nino"
+      placeholder="Población*" aria-label="Población del niño" required
+      value="${param.poblacion_nino}">
   </div>
   
   <div class="col-2">
    <input type="text" class="form-control" name="cpostal_nino" 
-    placeholder="Código Postal" aria-label="Codigo postal del niño">
+    placeholder="Código Postal" aria-label="Codigo postal del niño"
+    value="${param.cpostal_nino}">
   </div>
     
 </div>
@@ -101,21 +120,24 @@
   <div class="col-4">
   
     <input type="text" class="form-control" name="alergias_nino" 
-    placeholder="Alergias" aria-label="Alergias del niño"> 
+    placeholder="Alergias" aria-label="Alergias del niño"
+    value="${param.alergias_nino}"> 
    
     </div> 
     
   <div class="col-4">
  
     <input type="text" class="form-control" name="alergias_ali_nino" 
-     placeholder="Alergias alimentarias" aria-label="Alergias alimentarias del niño">
+     placeholder="Alergias alimentarias" aria-label="Alergias alimentarias del niño"
+     value="${param.alergias_ali_nino}">
     
   </div>
   
   <div class="col-4">
  
   <input type="text" class="form-control" name="intolerancias_nino" 
-    placeholder="Intolerancias" aria-label="Intolerancias del niño">
+    placeholder="Intolerancias" aria-label="Intolerancias del niño"
+    value="${param.intolerancias_nino}">
    
   </div>
     
@@ -127,13 +149,13 @@
   <div class="col">
   <!-- NO PUEDE HABER ESPACIO ENTRE <textarea></textarea> -->
     <textarea class="form-control" name="medicacion_nino" rows="3" placeholder="Medicación" 
-    aria-label="Medicación del niño"></textarea>
+    aria-label="Medicación del niño"  value="${param.medicacion_nino}"></textarea>
     </div> 
     
   <div class="col">
   
     <textarea class="form-control" name="observaciones_nino" rows="3"  placeholder="Observaciones"
-    aria-label="Observaciones sobre el niño"></textarea>
+    aria-label="Observaciones sobre el niño"  value="${param.observaciones_nino}"></textarea>
   </div>
    
 </div>
@@ -142,31 +164,36 @@
 <h3>Progenitor 1</h3>
 <div class="row">
   <div class="col-6">
-    <input type="text" class="form-control" name="nombreApe_progenitor1" 
-    placeholder="Nombre y Apellidos" aria-label="Nombre y apellidos del progenitor 1">
+    <input type="text" class="form-control text-capitalize" name="nombreApe_progenitor1" required
+    placeholder="Nombre y Apellidos*" aria-label="Nombre y apellidos del progenitor 1"
+     value="${param.nombreApe_progenitor1}">
     </div>
     
   <div class="col-3">
-    <input type="text" class="form-control" name="dni_progenitor1"
-      placeholder="DNI" aria-label="Dni del progenitor 1">
+    <input type="text" class="form-control text-uppercase" name="dni_progenitor1" required
+      placeholder="DNI*" aria-label="Dni del progenitor 1"
+       value="${param.dni_progenitor1}">
   </div>
   
   <div class="col-3">
-    <input type="tel" class="form-control" name="tel_progenitor1"
-     placeholder="Teléfono" aria-label="Teléfono del progenitor 1">
+    <input type="tel" class="form-control" name="tel_progenitor1" required
+     placeholder="Teléfono*" aria-label="Teléfono del progenitor 1"
+      value="${param.tel_progenitor1}">
     </div>  
     
      
 </div>
 <div class="row pt-4">
 <div class="col-5">
-    <input type="text" class="form-control" name="profesion_progenitor1"
-      placeholder="Profesión" aria-label="Profesión del progenitor 1">
+    <input type="text" class="form-control text-capitalize" name="profesion_progenitor1" required
+      placeholder="Profesión" aria-label="Profesión del progenitor 1"
+       value="${param.profesion_progenitor1}">
   </div>
   
   <div class="col-4">
-    <input type="email" class="form-control" name="email_progenitor1"
-     placeholder="Email" aria-label="Email del progenitor 1">
+    <input type="email" class="form-control" name="email_progenitor1" required
+     placeholder="Email*" aria-label="Email del progenitor 1"
+      value="${param.email_progenitor1}">
     </div>  
  
  </div>
@@ -208,23 +235,27 @@
 <h2 class="pt-4">Personas autorizadas:</h2>
 <div class="row">
   <div class="col-4">
-    <input type="text" class="form-control" name="nombreApe_autorizado1" 
-    placeholder="Nombre y Apellidos" aria-label="Nombre y apellidos de la persona autorizada">
+    <input type="text" class="form-control text-capitalize" name="nombreApe_autorizado1" 
+    placeholder="Nombre y Apellidos*" aria-label="Nombre y apellidos de la persona autorizada"
+     value="${param.nombreApe_autorizado1}">
     </div>
     
   <div class="col-2">
-    <input type="text" class="form-control" name="dni_autorizado1"
-      placeholder="DNI" aria-label="Dni de la persona autorizada">
+    <input type="text" class="form-control text-uppercase" name="dni_autorizado1"
+      placeholder="DNI*" aria-label="Dni de la persona autorizada"
+       value="${param.dni_autorizado1}">
   </div>
   
   <div class="col-2">
     <input type="tel" class="form-control" name="tel_autorizado1"
-     placeholder="Teléfono" aria-label="Teléfono de la persona autorizada">
+     placeholder="Teléfono*" aria-label="Teléfono de la persona autorizada"
+      value="${param.tel_autorizado1}">
     </div>  
 
   <div class="col-4">
-    <input type="text" class="form-control" name="parentesco_autorizado1" 
-    placeholder="Parentesco con el niño/a" aria-label="parentesco de la persona autorizada con el niño">
+    <input type="text" class="form-control text-capitalize" name="parentesco_autorizado1" 
+    placeholder="Parentesco con el niño/a*" aria-label="parentesco de la persona autorizada con el niño"
+     value="${param.parentesco_autorizado1}">
     </div>
     
    </div>

@@ -13,6 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="shortcut icon" href="img/child.png" type="image/png">
 
 <style>
 	*{
@@ -49,7 +51,7 @@
 <jsp:include page="header.jsp"></jsp:include>
 
 <div class="container">
-<form action="Controller" method="get">
+
 
 <h2>Datos del niño/a:</h2>
 
@@ -312,7 +314,6 @@ Profesión progenitor 2:
     </div>
     
 
-
 <!-- BOTONES -->
 
 <div class="row pt-4">
@@ -321,18 +322,13 @@ Profesión progenitor 2:
   
 	<input type="submit" name="enviar" value="Sí, registrar" 
 	class="btn btn-outline-success"  id="enviar" >
-	<a href="index.jsp"><input type="button" name="volver_atras" value="No, volver atrás" 
+	<a href="javascript: history.go(-1)"><input type="button" name="volver_atras" value="No, volver atrás" 
 	class="btn btn-outline-success"  id="limpiar" ></a>
 
 </div>
 </div>
 
-
-</form>
-
-
 </div>
-
 
 </body>
 </html>
