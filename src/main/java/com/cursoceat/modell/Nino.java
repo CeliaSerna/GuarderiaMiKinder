@@ -134,7 +134,7 @@ public void setObservacionesNino(String observacionesNino) {
 
 @Override
 public String toString() {
-	return "Niño [idNiño= "+ id + ", nombreNiño=" + nombreNino + ", apellidosNiño=" + apellidosNino + ", direccionNiño=" + direccionNino
+	return "Niño [idNiño= "+ idNino + ", nombreNiño=" + nombreNino + ", apellidosNiño=" + apellidosNino + ", direccionNiño=" + direccionNino
 			+ ", poblacionNiño=" + poblacionNino + ", cPostalNiño=" + cPostalNino + ", fechaNacimientoNiño=" + fechaNaciNino
 			+ ", alergiasNiño=" + alergiasNino + ", alergiasAlimentariasNiño=" + alergiasAliNino + ", intoleranciasNiño="
 			+ intoleranciasNino + ", medicacionNiño=" + medicacionNino + ", observacionesNiño=" + observacionesNino
