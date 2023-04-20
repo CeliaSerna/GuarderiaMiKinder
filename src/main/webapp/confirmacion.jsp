@@ -320,11 +320,16 @@ Profesión progenitor 2:
 <h4>¿Son correctos sus datos?</h4>
   <div class="col text-center">
   
+	<a href="saludo.jsp">
 	<input type="submit" name="enviar" value="Sí, registrar" 
 	class="btn btn-outline-success"  id="enviar" >
-	<a href="javascript: history.go(-1)"><input type="button" name="volver_atras" value="No, volver atrás" 
-	class="btn btn-outline-success"  id="limpiar" ></a>
-
+	</a>
+	<a href="javascript: history.go(-1)">
+	<input type="button" name="volver_atras" value="No, volver atrás" 
+	class="btn btn-outline-success"  id="limpiar" >
+	</a>
+	<a href="javascript: window:print()" class="btn btn-outline-success"
+	id ="imprimir" role="button">&#128424;</a>
 </div>
 </div>
 

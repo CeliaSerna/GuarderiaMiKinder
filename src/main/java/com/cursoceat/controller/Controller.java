@@ -107,6 +107,18 @@ public class Controller extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
+protected boolean validarTel(String tel) {
+	if ((!tel.startsWith("9")&&!tel.startsWith("6") &&!tel.startsWith("7"))
+		||tel.length()!=9) {
+		return false;
+		
+	}else {
+		return true;
+	}
+}
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
