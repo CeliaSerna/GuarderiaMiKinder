@@ -20,13 +20,13 @@
   <div class="col-4">
     <input type="text" class="form-control text-capitalize" name="nombre_nino" 
     placeholder="Nombre*" aria-label="Nombre del niño" required
-    value="${param.nombre_nino}"  pattern="[A-Za-z]">
+    value="${param.nombre_nino}"  pattern="[a-zA-Z ]+">
     </div>
     
   <div class="col-4">
     <input type="text" class="form-control text-capitalize" name="apellidos_nino"
       placeholder="Apellidos*" aria-label="Apellidos del niño" required
-      value="${param.apellidos_nino}" pattern="[A-Za-z]">
+      value="${param.apellidos_nino}" pattern="[a-zA-Z ]+">
   </div>
   
   <div class="col-2 text-end pt-lg-2">
@@ -53,7 +53,7 @@
   <div class="col-4">
     <input type="text" class="form-control text-capitalize" name="poblacion_nino"
       placeholder="Población*" aria-label="Población del niño" required
-      value="${param.poblacion_nino}" pattern="[A-Za-z]">
+      value="${param.poblacion_nino}" pattern="[a-zA-Z ]+">
   </div>
   
   <div class="col-2">
@@ -117,7 +117,7 @@
   <div class="col-6">
     <input type="text" class="form-control text-capitalize" name="nombreApe_progenitor1" required
     placeholder="Nombre y Apellidos*" aria-label="Nombre y apellidos del progenitor 1"
-     value="${param.nombreApe_progenitor1}" pattern="[A-Za-z]">
+     value="${param.nombreApe_progenitor1}" pattern="[a-zA-Z ]+">
     </div>
     
   <div class="col-3">
@@ -129,7 +129,7 @@
   <div class="col-3">
     <input type="tel" class="form-control" name="tel_progenitor1" required
      placeholder="Teléfono*" aria-label="Teléfono del progenitor 1"
-      value="${param.tel_progenitor1}">
+      value="${param.tel_progenitor1}" pattern="[6789]{1}[0-9]{8}">
     </div>  
     
      
@@ -138,7 +138,7 @@
 <div class="col-5">
     <input type="text" class="form-control text-capitalize" name="profesion_progenitor1" required
       placeholder="Profesión" aria-label="Profesión del progenitor 1"
-       value="${param.profesion_progenitor1}" pattern="[A-Za-z]">
+       value="${param.profesion_progenitor1}" pattern="[a-zA-Z ]+">
   </div>
   
   <div class="col-4">
@@ -155,7 +155,8 @@
 <div class="row">
   <div class="col-6">
     <input type="text" class="form-control" name="nombreApe_progenitor2" 
-    placeholder="Nombre y Apellidos" aria-label="Nombre y apellidos del progenitor 2">
+    placeholder="Nombre y Apellidos" aria-label="Nombre y apellidos del progenitor 2"
+    pattern="[a-zA-Z ]+">
     </div>
     
   <div class="col-3">
@@ -165,7 +166,8 @@
   
   <div class="col-3">
     <input type="tel" class="form-control" name="tel_progenitor2"
-     placeholder="Teléfono" aria-label="Teléfono del progenitor 2">
+     placeholder="Teléfono" aria-label="Teléfono del progenitor 2"
+     pattern="[6789]{1}[0-9]{8}">
     </div>  
     
      
@@ -173,7 +175,8 @@
 <div class="row pt-4">
 <div class="col-5">
     <input type="text" class="form-control" name="profesion_progenitor2"
-      placeholder="Profesión" aria-label="Profesión del progenitor 2">
+      placeholder="Profesión" aria-label="Profesión del progenitor 2"
+      pattern="[a-zA-Z ]+">
   </div>
   
   <div class="col-4">
@@ -188,7 +191,7 @@
   <div class="col-4">
     <input type="text" class="form-control text-capitalize" name="nombreApe_autorizado1" 
     placeholder="Nombre y Apellidos*" aria-label="Nombre y apellidos de la persona autorizada"
-     value="${param.nombreApe_autorizado1}">
+     value="${param.nombreApe_autorizado1}" pattern="[a-zA-Z ]+">
     </div>
     
   <div class="col-2">
@@ -200,13 +203,13 @@
   <div class="col-2">
     <input type="tel" class="form-control" name="tel_autorizado1"
      placeholder="Teléfono*" aria-label="Teléfono de la persona autorizada"
-      value="${param.tel_autorizado1}">
+      value="${param.tel_autorizado1}" pattern="[6789]{1}[0-9]{8}">
     </div>  
 
   <div class="col-4">
     <input type="text" class="form-control" name="parentesco_autorizado1" 
     placeholder="Parentesco con el niño/a*" aria-label="parentesco de la persona autorizada con el niño"
-     value="${param.parentesco_autorizado1}">
+     value="${param.parentesco_autorizado1}" pattern="[a-zA-Z ]+">
     </div>
     
    </div>
