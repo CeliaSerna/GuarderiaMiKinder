@@ -20,13 +20,13 @@
   <div class="col-4">
     <input type="text" class="form-control text-capitalize" name="nombre_nino" 
     placeholder="Nombre*" aria-label="Nombre del niño" required
-    value="${param.nombre_nino}">
+    value="${param.nombre_nino}"  pattern="[A-Za-z]">
     </div>
     
   <div class="col-4">
     <input type="text" class="form-control text-capitalize" name="apellidos_nino"
       placeholder="Apellidos*" aria-label="Apellidos del niño" required
-      value="${param.apellidos_nino}">
+      value="${param.apellidos_nino}" pattern="[A-Za-z]">
   </div>
   
   <div class="col-2 text-end pt-lg-2">
@@ -53,13 +53,13 @@
   <div class="col-4">
     <input type="text" class="form-control text-capitalize" name="poblacion_nino"
       placeholder="Población*" aria-label="Población del niño" required
-      value="${param.poblacion_nino}">
+      value="${param.poblacion_nino}" pattern="[A-Za-z]">
   </div>
   
   <div class="col-2">
    <input type="text" class="form-control" name="cpostal_nino" 
     placeholder="Código Postal" aria-label="Codigo postal del niño"
-    value="${param.cpostal_nino}">
+    value="${param.cpostal_nino}" pattern="[0-9]{5}">
   </div>
     
 </div>
@@ -117,13 +117,13 @@
   <div class="col-6">
     <input type="text" class="form-control text-capitalize" name="nombreApe_progenitor1" required
     placeholder="Nombre y Apellidos*" aria-label="Nombre y apellidos del progenitor 1"
-     value="${param.nombreApe_progenitor1}">
+     value="${param.nombreApe_progenitor1}" pattern="[A-Za-z]">
     </div>
     
   <div class="col-3">
     <input type="text" class="form-control text-uppercase" name="dni_progenitor1" required
       placeholder="DNI*" aria-label="Dni del progenitor 1"
-       value="${param.dni_progenitor1}">
+       value="${param.dni_progenitor1}" pattern="[0-9]{8}[A-Za-z]{1}">
   </div>
   
   <div class="col-3">
@@ -138,7 +138,7 @@
 <div class="col-5">
     <input type="text" class="form-control text-capitalize" name="profesion_progenitor1" required
       placeholder="Profesión" aria-label="Profesión del progenitor 1"
-       value="${param.profesion_progenitor1}">
+       value="${param.profesion_progenitor1}" pattern="[A-Za-z]">
   </div>
   
   <div class="col-4">
@@ -160,7 +160,7 @@
     
   <div class="col-3">
     <input type="text" class="form-control" name="dni_progenitor2"
-      placeholder="DNI" aria-label="Dni del progenitor 2">
+      placeholder="DNI" aria-label="Dni del progenitor 2" pattern="[0-9]{8}[A-Za-z]{1}">
   </div>
   
   <div class="col-3">
@@ -194,7 +194,7 @@
   <div class="col-2">
     <input type="text" class="form-control text-uppercase" name="dni_autorizado1"
       placeholder="DNI*" aria-label="Dni de la persona autorizada"
-       value="${param.dni_autorizado1}">
+       value="${param.dni_autorizado1}" pattern="[0-9]{8}[A-Za-z]{1}">
   </div>
   
   <div class="col-2">

@@ -6,6 +6,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
+
+import org.apache.catalina.valves.rewrite.InternalRewriteMap.UpperCase;
+import org.apache.jasper.tagplugins.jstl.core.Catch;
 
 import com.cursoceat.modell.Nino;
 import com.cursoceat.modell.Padres;
@@ -108,8 +113,20 @@ public class Controller extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	
-protected boolean validarTel(String tel) {
-	if ((!tel.startsWith("9")&&!tel.startsWith("6") &&!tel.startsWith("7"))
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+	
+//////metodos de validación/////////	
+/**
+ * 
+ * @param tel
+ * @return boolean
+ * @description validamos si el telefono tiene el formato correcto
+ */
+public boolean validarTel(String tel) {
+	if ( (!tel.startsWith("9")&&!tel.startsWith("6") &&!tel.startsWith("7") )
 		||tel.length()!=9) {
 		return false;
 		
@@ -117,11 +134,72 @@ protected boolean validarTel(String tel) {
 		return true;
 	}
 }
+/**
+ * 
+ * @param fechaNaci
+ * @return boolean
+ * @description validamos si el niño tienes 6 años o menos
+ *
+ */
+public boolean validarFechaNaci(String fechaNaci) {
 	
+	LocalDate fechaNaciT= LocalDate.parse(fechaNaci);
+	LocalDate hoy=LocalDate.now();
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	//Period aniosNino = Period.between(hoy,fechaNaciT);
+	int anioNaciNino = fechaNaciT.getYear();
+	int anioActual= hoy.getYear();
+	int edad = anioActual-anioNaciNino;
+	if (edad <=6) {
+		return true;
+	}else {
+		return false;
+}
+	
+}	
+public boolean validarDNI(String dni) {
+	
+	String letra= "TRWAGMYFPDXBNJZSQVHLCKE";
+	String intDni=dni.substring(0,8);
+	
+	try {	
+	int dniEntero=Integer.parseInt(intDni)%23;
+	
+	char letraDni=  dni.toUpperCase().charAt(8);
+	char letraCorrecta=letra.charAt(dniEntero);
+	
+	//creo la condicion para que dni tenga 9 posiciones
+	//que la letraDni sea igual a la letra del algoritmo
+	
+	if (dni.length()==9 && letraDni == letraCorrecta) {
+		return true;
+	}else {
+		return false;
 	}
+	
+	}catch (Exception e) {
+	return false;
+
+}	finally {
+	
+}
+}
+public String pasarPriMayus(String texto) {
+	texto=texto.toLowerCase();//paso todo el texto a minisculas
+	String[] arrayTexto=texto.split(" ");//si es mas de una palabra
+	String temp="";//creo la variable que se formara por cada interacion
+	for (int i=0; i <arrayTexto.length; i++) {
+	arrayTexto[i]=arrayTexto[i].substring(0,1).toUpperCase() 
+		+ arrayTexto[i].substring(1);
+		
+	temp+=arrayTexto[i] + " ";//lo acumulamos en temp
+	}
+	return temp.trim();//enviamos temp ya formateado 
+	//y quitando espacios del principio y el final
+
+
+}
+
+
 
 }
