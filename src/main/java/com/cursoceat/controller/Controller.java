@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 
 import org.apache.catalina.valves.rewrite.InternalRewriteMap.UpperCase;
 import org.apache.jasper.tagplugins.jstl.core.Catch;
@@ -89,12 +90,32 @@ public class Controller extends HttpServlet {
 	//leer todos los datos del formulario
 	//crear mis objetos --> clase
 	//
+	/////array list con todos los errores//////
+	ArrayList<String> listaErrores = new ArrayList<>();
 	
+	if (!validarDNI(dniProgenitor1)) {//se añade a la condicion 
+	/////// todos los dni con el operador ||   /////////
+		listaErrores.add("Verifique DNI");
+	}
 	
-	if (nombreNino.isEmpty() || apellidosNino.isEmpty() || fechaNaciNino.isEmpty()
-		|| poblacionNino.isEmpty() ) {
-	String error="Los campos requeridos son obligatorios";
-	request.setAttribute("error", error);//no se envia hasta que no Dispatcher
+	if (!validarFechaNaci(fechaNaciNino)) {
+		listaErrores.add("El niño debe tener menos de 6 años");	
+	}
+	
+	if (!validarTel(telProgenitor1)){ // || !validarTel(telProgenitor2)
+		listaErrores.add("El teléfono debe comenzar por 6 o 7 o 9");	
+	}
+	
+if (nombreNino.isEmpty() || apellidosNino.isEmpty() || fechaNaciNino.isEmpty()
+	|| poblacionNino.isEmpty() ||direccionNino.isEmpty()  
+	||nombreApeProgenitor1.isEmpty() || dniProgenitor1.isEmpty()
+	||telProgenitor1.isEmpty() || emailProgenitor1.isEmpty() ) {
+	
+	listaErrores.add("Hay campos obligatorios que están vacios");
+	}
+	
+	if(!listaErrores.isEmpty() ) {
+	request.setAttribute("listaErrores", listaErrores);//no se envia hasta que no Dispatcher
 	request.getRequestDispatcher("index.jsp").forward(request, response);//no se muestra si no tengo quien lo muestre
 	
 	}else {
@@ -105,7 +126,9 @@ public class Controller extends HttpServlet {
     int idNino= miNino.getIdNino();
     
     Padres miPadres = new Padres(idNino, nombreApeProgenitor1, dniProgenitor1, telProgenitor1, profesionProgenitor1, emailProgenitor1);
-	System.out.println(miPadres.toString());	}
+	System.out.println(miPadres.toString());	
+	
+	}
 		
 	}
 
