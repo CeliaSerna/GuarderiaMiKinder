@@ -6,7 +6,7 @@
 
 <div class="container">
 <p>
-El alta de  <c:out value="${nombreNino}"></c:out>
+El alta de <c:out value="${nombreN}"></c:out>
 se ha realizado correctamente.
 
 

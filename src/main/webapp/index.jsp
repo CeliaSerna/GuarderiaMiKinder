@@ -7,17 +7,17 @@
 
 <div class="container">
 <!-- imprime error si los campos no estan rellenos -->
-	<c:if test ="${not empty listaErrores }">
-	<ul class="list-group">
-	<li class="list-group active bg-danger">Existen errores</li>
-   <c:forEach items="${listaErrores}" var="error">
-   <li class="list-group">
-   <c:out value="${error}"> </c:out>
-   </li>
-  
+    <c:if test ="${not empty listaErrores}">
+	<ul class="list-group text-danger pb-4">
+	<li class="list-group active bg-danger" id="error">Existen errores</li>
+    <c:forEach items="${listaErrores}" var="error">
+    <li class="list-group">
+    <c:out value="${error}"> </c:out>
+    
+    </li>
 	</c:forEach>
 	</ul>
-</c:if>
+    </c:if>
 
 <!-- 
 <p class="text-danger">

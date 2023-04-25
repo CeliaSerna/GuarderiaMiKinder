@@ -61,7 +61,9 @@
 	h2, h3{
 	color:#353d39;
 	}
-
+	#error{
+	color:black !important;
+	}
 </style>
 </head>
 

@@ -15,7 +15,10 @@ import org.apache.jasper.tagplugins.jstl.core.Catch;
 
 import com.cursoceat.modell.Nino;
 import com.cursoceat.modell.Padres;
-
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 /**
  * Servlet implementation class Controller
  */
@@ -117,6 +120,10 @@ if (nombreNino.isEmpty() || apellidosNino.isEmpty() || fechaNaciNino.isEmpty()
 	if(!listaErrores.isEmpty() ) {
 	request.setAttribute("listaErrores", listaErrores);//no se envia hasta que no Dispatcher
 	request.getRequestDispatcher("index.jsp").forward(request, response);//no se muestra si no tengo quien lo muestre
+	//listaErrores.clear();//limpia el arraylist
+	
+	
+	
 	
 	}else {
 	request.getRequestDispatcher("confirmacion.jsp").forward(request, response);
@@ -127,6 +134,10 @@ if (nombreNino.isEmpty() || apellidosNino.isEmpty() || fechaNaciNino.isEmpty()
     
     Padres miPadres = new Padres(idNino, nombreApeProgenitor1, dniProgenitor1, telProgenitor1, profesionProgenitor1, emailProgenitor1);
 	System.out.println(miPadres.toString());	
+	
+	HttpSession sesion = request.getSession();
+	request.getSession().setAttribute("nombreN", nombreNino);
+  //request.getSession().setAttribute("idNino", idNino);
 	
 	}
 		
