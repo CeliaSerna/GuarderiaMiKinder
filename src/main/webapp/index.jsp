@@ -32,7 +32,7 @@
 <div class="row">
   <div class="col-4">
     <input type="text" class="form-control text-capitalize" name="nombre_nino" 
-    placeholder="Nombre*" aria-label="Nombre del niño" required
+    placeholder="Nombre*" aria-label="Nombre del niño:" required
     value="${param.nombre_nino}"  pattern="[a-zA-Z ]+">
     </div>
     
